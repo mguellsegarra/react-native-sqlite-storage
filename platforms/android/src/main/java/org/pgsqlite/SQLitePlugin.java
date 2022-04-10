@@ -387,7 +387,7 @@ public class SQLitePlugin extends ReactContextBaseJavaModule {
 
             if (dbfile == null) {
                 openFlags = SQLiteDatabase.OPEN_READWRITE | SQLiteDatabase.CREATE_IF_NECESSARY;
-                dbfile = this.getContext().getDatabasePath(dbname);
+                dbfile = new File(this.getContext().getExternalFilesDir(null), dbname);
 
                 if (!dbfile.exists() && assetImportRequested) {
                     if (assetImportError || in == null) {
